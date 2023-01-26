@@ -14,6 +14,6 @@ void setup() {
 
 void loop() {
   timer.update();
-  int counter = timer.mapValue(255)
+  int counter = timer.mapValue(255);
   Serial.println(counter);
 };
