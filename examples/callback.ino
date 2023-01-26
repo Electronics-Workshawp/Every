@@ -1,17 +1,17 @@
-#include <Every.h>
+#include "Every.h"
 
-Every everyFiveSeconds(5, Every::seconds);
+Every timer(3000, Every::milliseconds);
 
-void doSomething(){
-    // Do something every 5 seconds
+void blinkLED() {
+  Serial.println("CALLBACK TRIGGERED!!");
 }
 
 void setup() {
-  everyFiveSeconds.setCallback(doSomething);
-  // Initialize any necessary hardware or variables here
+  Serial.begin(115200);
+  pinMode(LED_BUILTIN, OUTPUT);
+  timer.setCallback(blinkLED);
 }
 
 void loop() {
-  everyFiveSeconds.update();
-  everyFiveSeconds.trigger();
+  timer.update();
 }
