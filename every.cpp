@@ -103,6 +103,22 @@ unsigned long  Every::getInterval(char* unit) {
   
 }
 
+unsigned long Every::percent() {
+  unsigned long currentTime = micros();
+  if(_paused) return 0;
+  if (_previousTime > currentTime) {
+    return 0;
+  }
+  else if (_previousTime + _interval > currentTime) {
+    unsigned long timePassed = currentTime - _previousTime;
+    return (timePassed / (float)_interval) * 100;
+  }
+  else {
+    return 100;
+  }
+}
+
+
 void Every::setRepeat(bool repeat) {
   _repeat = repeat;
 }
