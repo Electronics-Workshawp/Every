@@ -6,7 +6,8 @@ class Every {
 	 enum Unit {
         milliseconds,
         seconds,
-        minutes
+        minutes,
+		hours
     };
     Every(uint32_t  interval, Unit unit);
     bool trigger();
@@ -18,7 +19,7 @@ class Every {
 	uint32_t  getInterval(Unit unit);
     void setRepeat(bool repeat);
 	uint32_t  percent();
-	uint32_t  mapValue(uint32_t  target);
+	uint32_t  mapValue(uint32_t  source,uint32_t  target);
     void setCallback(void (*callback)());
     
   private:
