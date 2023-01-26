@@ -13,6 +13,7 @@ class Every {
 	unsigned long getInterval(char* unit);
     void setRepeat(bool repeat);
 	unsigned long percent();
+	unsigned long mapValue(unsigned long target);
     void setCallback(void (*callback)());
     
   private:
