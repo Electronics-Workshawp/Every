@@ -1,3 +1,5 @@
+#include <Every.h>
+
 Every everyFiveSeconds(5, Every::seconds);
 
 void setup() {
@@ -5,7 +7,7 @@ void setup() {
 
 void loop() {
   everyFiveSeconds.update();
-  if (everyFiveSeconds.triggered()) {
+  if (everyFiveSeconds.trigger()) {
     Serial.println("Every 5 seconds");
   }
   if(Serial.available()){
