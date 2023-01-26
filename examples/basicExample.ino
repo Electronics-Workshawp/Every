@@ -3,12 +3,12 @@
 Every everyFiveSeconds(5, Every::seconds);
 
 void setup() {
-  // Initialize any necessary hardware or variables here
+ Serial.begin(115200)
 }
 
 void loop() {
   everyFiveSeconds.update();
-  if (everyFiveSeconds.triggered()) {
-    // Do something every 5 seconds
+  if (everyFiveSeconds.trigger()) {
+    Serial.println("EVERY 5 SECONDS!!");
   }
 }
