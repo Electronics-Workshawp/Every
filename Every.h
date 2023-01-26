@@ -23,7 +23,7 @@ class Every {
     uint32_t  _interval;
     uint32_t  _previousTime;
     bool _triggered;
-	bool _isReady;
+    bool _isReady;
     bool _paused;
     bool _repeat;
     void (*_callback)();
