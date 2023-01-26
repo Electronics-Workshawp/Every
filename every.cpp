@@ -27,7 +27,6 @@
 
 	bool Every::trigger() {
 	  if (_triggered) {
-		_triggered = false;
 		if(!_repeat) _paused = true;
 		if(_callback != NULL) _callback();
 		return true;
@@ -35,12 +34,26 @@
 	  return false;
 	}
 
+	bool Every::ready() {
+		
+	  if (_isReady){
+       _isReady = false;
+	   return true;
+	  }
+	  else {return false;}
+	}
+
+
+
+
+
 	void Every::update() {
 	  if(_paused) return;
 	  unsigned long currentTime = millis();
 	  if (currentTime - _previousTime >= _interval) {
 		_previousTime = currentTime;
 		_triggered = true;
+		_isReady = true;
 		if(_callback != NULL) _callback();
 	  }
 	  else if(currentTime < _previousTime) {
@@ -50,6 +63,7 @@
 		_paused = true;
 	  }
 	  _triggered = false;
+	  
 	}
 
 
