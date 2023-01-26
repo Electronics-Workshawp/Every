@@ -1,8 +1,6 @@
 #include "Arduino.h"
 #include "Every.h"
 
-
-
 Every::Every(unsigned long interval, char* unit) {
   _interval = interval;
   _previousTime = micros();
@@ -45,27 +43,32 @@ void Every::update() {
   }
 }
 
-void Every::pause() {
-  _paused = true;
-}
-
-void Every::resume() {
-  _paused = false;
-}
-
-unsigned long Every::remaining() {
+unsigned long Every::remaining(char* unit) {
   unsigned long currentTime = micros();
   if(_paused) return 0;
   if (_previousTime > currentTime) {
     return 0;
   }
   else if (_previousTime + _interval > currentTime) {
-    return _previousTime + _interval - currentTime;
+    unsigned long remainingTime = _previousTime + _interval - currentTime;
+    if (unit == "microseconds") {
+      return remainingTime;
+    }
+    if (unit == "milliseconds") {
+      return remainingTime / 1000;
+    }
+    if (unit == "seconds") {
+      return remainingTime / 1000000;
+    }
+    if (unit == "minutes") {
+      return remainingTime / (1000000 * 60);
+    }
   }
   else {
     return 0;
   }
 }
+
 
 void Every::setInterval(float interval,char* unit) {
   _interval = interval;
@@ -81,6 +84,23 @@ void Every::setInterval(float interval,char* unit) {
   if (unit == "minutes") {
     _interval *= 1000000*60;
   }
+}
+
+unsigned long  Every::getInterval(char* unit) {
+  unsigned long interval = _interval;	
+  if (unit == "microseconds") {
+    return interval /= 1;
+  }
+  if (unit == "milliseconds") {
+    return interval /= 1000;
+  }
+  if (unit == "seconds") {
+    return interval /= 1000000;
+  }
+  if (unit == "minutes") {
+    return interval /= 1000000*60;
+  }
+  
 }
 
 void Every::setRepeat(bool repeat) {
