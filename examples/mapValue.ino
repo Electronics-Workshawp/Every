@@ -1,6 +1,6 @@
 #include <Every.h>
 
-Every timer(4, "seconds");
+Every timer(4, Every::seconds);
 
 void setup() {
   Serial.begin(115200);
