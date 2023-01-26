@@ -1,6 +1,6 @@
 #include <Every.h>
 
-Every everyFiveSeconds(5, "seconds");
+Every everyFiveSeconds(5, Every::seconds);
 
 void firstEvent() {
   // Do something every 5 seconds
@@ -17,7 +17,7 @@ void setup() {
 
 void loop() {
   everyFiveSeconds.update();
-  if (everyFiveSeconds.remaining("milliseconds") <= (everyFiveSeconds.getInterval("milliseconds")/2)) {
+  if (everyFiveSeconds.remaining(Every::milliseconds) <= (everyFiveSeconds.getInterval(Every::milliseconds)/2)) {
     // Trigger the second event when the first event is half way between triggers
     secondEvent();
   }
