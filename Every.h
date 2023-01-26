@@ -8,9 +8,11 @@ class Every {
     void update();
     void pause();
     void resume();
-    unsigned long remaining();
+    unsigned long remaining(char* unit);
     void setInterval(float interval, char* unit);
+	unsigned long getInterval(char* unit);
     void setRepeat(bool repeat);
+	unsigned long percent();
     void setCallback(void (*callback)());
     
   private:
