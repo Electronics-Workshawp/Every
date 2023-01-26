@@ -12,8 +12,8 @@ class Every {
     Every(uint32_t  interval, Unit unit);
     bool trigger();
     void update();
-    void pause();
-    void resume();
+    void pauseTask();
+    void resumeTask();
     uint32_t  remaining(Unit unit);
     void setInterval(float interval, Unit unit);
 	uint32_t  getInterval(Unit unit);
