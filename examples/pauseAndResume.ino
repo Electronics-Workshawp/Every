@@ -1,18 +1,27 @@
 #include <Every.h>
 
-Every everyFiveSeconds(5, Every::seconds);
+Every timer(5, Every::seconds);
+
+
 
 void setup() {
+  Serial.begin(115200);
+  
 }
 
 void loop() {
-  everyFiveSeconds.update();
-  if (everyFiveSeconds.trigger()) {
-    Serial.println("Every 5 seconds");
-  }
-  if(Serial.available()){
+  timer.update();
+  
+int remaining = timer.remaining(Every::milliseconds);
+Serial.println(remaining);  
+
+ if(Serial.available()){
     char command = Serial.read();
-    if(command == 'p') everyFiveSeconds.pause();
-    if(command == 'r') everyFiveSeconds.resume();
+    if(command == 'p') timer.pauseTask();
+    if(command == 'r') timer.resumeTask();
   }
-}
+
+};
+
+
+
