@@ -112,7 +112,7 @@
 	  }
 	  else if (_previousTime + _interval > currentTime) {
 		uint32_t  timePassed = currentTime - _previousTime;
-		return source + (timePassed / (float)_interval) * (target-source);
+		return source + (timePassed / (float)_interval) * (target-source+1);
 	  }
 	  else {
 		return target;
