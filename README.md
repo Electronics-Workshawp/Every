@@ -1,4 +1,4 @@
-# Every - Arduino Timer/Scheduler library
+**# Every - Arduino Timer/Scheduler library
 
 The Every library allows you to create a timer/scheduler for the Arduino platform. It allows you to trigger an action or function after a specific interval of time has passed. This is useful for scheduling tasks or creating timed events in an Arduino sketch.
 
@@ -26,3 +26,5 @@ The Every library allows you to create a timer/scheduler for the Arduino platfor
 -mapValue() maps a value between a source and a target based on the percentage of the time interval that has passed.
 -setRepeat() sets whether the class should repeat the interval after it's been reached or not.
 -setCallback() sets a callback function to be called when the interval has been reached.
+
+**
