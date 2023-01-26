@@ -3,7 +3,7 @@
 	
 	
 
-	Every::Every(unsigned long interval, Unit unit) {
+	Every::Every(uint32_t  interval, Unit unit) {
 	  _interval = interval;
 	  _previousTime = millis();
 	  _paused = false;
@@ -28,7 +28,7 @@
 
 	void Every::update() {
 	  if(_paused) return;
-	  unsigned long currentTime = millis();
+	  uint32_t  currentTime = millis();
 	  if (currentTime - _previousTime >= _interval) {
 		_previousTime = currentTime;
 		_triggered = true;
@@ -38,13 +38,13 @@
 	  }
 	}
 
-	unsigned long Every::remaining(Unit unit) {
-	  unsigned long currentTime = millis();
+	uint32_t  Every::remaining(Unit unit) {
+	  uint32_t  currentTime = millis();
 	  if(_paused) return 0;
 	  if (_previousTime > currentTime) {
 		return 0;
 	  } else if (_previousTime + _interval > currentTime) {
-		unsigned long remainingTime = _previousTime + _interval - currentTime;
+		uint32_t  remainingTime = _previousTime + _interval - currentTime;
 
 		if (unit == milliseconds) {return remainingTime / 1;}
 		else if (unit == seconds) {return remainingTime / 1000;}
@@ -66,8 +66,8 @@
 	}
 
 
-	unsigned long  Every::getInterval(Unit unit) {
-	  unsigned long interval = _interval;
+	uint32_t   Every::getInterval(Unit unit) {
+	  uint32_t  interval = _interval;
 
 	  if (unit == milliseconds){return interval /= 1;}
 	  else if (unit == seconds){return interval /= 1000;}
@@ -78,14 +78,14 @@
 	}
 
 
-	unsigned long Every::percent() {
-	  unsigned long currentTime = millis();
+	uint32_t  Every::percent() {
+	  uint32_t  currentTime = millis();
 	  if(_paused) return 0;
 	  if (_previousTime > currentTime) {
 		return 0;
 	  }
 	  else if (_previousTime + _interval > currentTime) {
-		unsigned long timePassed = currentTime - _previousTime;
+		uint32_t  timePassed = currentTime - _previousTime;
 		return (timePassed / (float)_interval) * 100;
 	  }
 	  else {
@@ -93,15 +93,15 @@
 	  }
 	}
 
-	unsigned long Every::mapValue(unsigned long target) {
-	  unsigned long output;
-	  unsigned long currentTime = millis();
+	uint32_t  Every::mapValue(uint32_t  target) {
+	  uint32_t  output;
+	  uint32_t  currentTime = millis();
 	  if(_paused) return 0;
 	  if (_previousTime > currentTime) {
 		return 0;
 	  }
 	  else if (_previousTime + _interval > currentTime) {
-		unsigned long timePassed = currentTime - _previousTime;
+		uint32_t  timePassed = currentTime - _previousTime;
 		return (timePassed / (float)_interval) * target;
 	  }
 	  else {
