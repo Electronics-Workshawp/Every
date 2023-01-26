@@ -28,15 +28,21 @@
 
 	void Every::update() {
 	  if(_paused) return;
-	  uint32_t  currentTime = millis();
+	  unsigned long currentTime = millis();
 	  if (currentTime - _previousTime >= _interval) {
 		_previousTime = currentTime;
 		_triggered = true;
+		if(_callback != NULL) _callback();
 	  }
 	  else if(currentTime < _previousTime) {
 		_previousTime = currentTime;
 	  }
+	  if(_triggered && !_repeat){
+		_paused = true;
+	  }
+	  _triggered = false;
 	}
+
 
 	uint32_t  Every::remaining(Unit unit) {
 	  uint32_t  currentTime = millis();
