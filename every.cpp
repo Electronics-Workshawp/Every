@@ -30,17 +30,17 @@
 	  return false;
 	}
 
-	void Every::update() {
-	  if(_paused) return;
-	  unsigned long currentTime = millis();
-	  if (currentTime < _previousTime) {
-		_previousTime = currentTime;
-	  }
-	  else if (currentTime - _previousTime >= _interval) {
-		_previousTime = currentTime;
-		_triggered = true;
-	  }
-	}
+void Every::update() {
+  if(_paused) return;
+  unsigned long currentTime = millis();
+  if (currentTime - _previousTime >= _interval) {
+    _previousTime = currentTime;
+    _triggered = true;
+  }
+  else if(currentTime < _previousTime) {
+    _previousTime = currentTime;
+  }
+}
 
 	unsigned long Every::remaining(char* unit) {
 	  unsigned long currentTime = millis();
