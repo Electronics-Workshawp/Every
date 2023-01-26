@@ -118,6 +118,22 @@ unsigned long Every::percent() {
   }
 }
 
+unsigned long Every::mapValue(unsigned long target) {
+  unsigned long output;
+  unsigned long currentTime = micros();
+  if(_paused) return 0;
+  if (_previousTime > currentTime) {
+    return 0;
+  }
+  else if (_previousTime + _interval > currentTime) {
+    unsigned long timePassed = currentTime - _previousTime;
+    return (timePassed / (float)_interval) * target;
+  }
+  else {
+    return target;
+  }
+}
+
 
 void Every::setRepeat(bool repeat) {
   _repeat = repeat;
