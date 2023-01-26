@@ -12,6 +12,7 @@
 	  if (unit == milliseconds) {_interval *= 1;}
 	  else if (unit == seconds) {_interval *= 1000;}
 	  else if (unit == minutes) {_interval *= 1000*60;}
+	  else if (unit == hours) {_interval *= 1000*60*60;}
 	}
 
 
@@ -54,7 +55,8 @@
 
 		if (unit == milliseconds) {return remainingTime / 1;}
 		else if (unit == seconds) {return remainingTime / 1000;}
-		else if (unit == minutes) {return remainingTime / (1000 * 60);}
+		else if (unit == minutes) {return remainingTime / (1000*60);}
+		else if (unit == hours) {return remainingTime / (1000*60*60);}
 	  } 
 	  else {
 		return 0;
@@ -69,6 +71,7 @@
 	  if (unit == milliseconds){_interval *= 1;}
 	  else if (unit == seconds) {_interval *= 1000;}
 	  else if (unit == minutes) {_interval *= 1000*60;}
+	  else if (unit == hours) {_interval *= 1000*60*60;}
 	}
 
 
@@ -78,6 +81,7 @@
 	  if (unit == milliseconds){return interval /= 1;}
 	  else if (unit == seconds){return interval /= 1000;}
 	  else if (unit == minutes){return interval /= 1000*60;}
+	  else if (unit == hours){return interval /= 1000*60*60;}
 	  else{
 		return 0;
 	  }
