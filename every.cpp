@@ -27,7 +27,7 @@ void loop() {
   oneHour.update();
   String timerString = (String)seconds + ":" + (String)minutes + ":" + (String)hours;
 
-  if (seconds > 60){seconds = 0;)if (minutes > 60){minutes = 0;)
+  if (seconds >= 60){seconds = 0;)if (minutes > 60){minutes = 0;);
  
   Serial.println(timerString);
 }
