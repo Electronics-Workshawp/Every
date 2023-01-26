@@ -103,16 +103,16 @@
 	  }
 	}
 
-	uint32_t  Every::mapValue(uint32_t  target) {
-	  uint32_t  output;
+	uint32_t  Every::mapValue(uint32_t  source, uint32_t  target) {
 	  uint32_t  currentTime = millis();
+	  uint32_t  output = source;
 	  if(_paused) return 0;
 	  if (_previousTime > currentTime) {
-		return 0;
+		return source;
 	  }
 	  else if (_previousTime + _interval > currentTime) {
 		uint32_t  timePassed = currentTime - _previousTime;
-		return (timePassed / (float)_interval) * target;
+		return source + (timePassed / (float)_interval) * (target-source);
 	  }
 	  else {
 		return target;
