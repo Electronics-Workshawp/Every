@@ -8,22 +8,22 @@ class Every {
         seconds,
         minutes
     };
-    Every(unsigned long interval, Unit unit);
+    Every(uint32_t  interval, Unit unit);
     bool trigger();
     void update();
     void pause();
     void resume();
-    unsigned long remaining(Unit unit);
+    uint32_t  remaining(Unit unit);
     void setInterval(float interval, Unit unit);
-	unsigned long getInterval(Unit unit);
+	uint32_t  getInterval(Unit unit);
     void setRepeat(bool repeat);
-	unsigned long percent();
-	unsigned long mapValue(unsigned long target);
+	uint32_t  percent();
+	uint32_t  mapValue(uint32_t  target);
     void setCallback(void (*callback)());
     
   private:
-    unsigned long _interval;
-    unsigned long _previousTime;
+    uint32_t  _interval;
+    uint32_t  _previousTime;
     bool _triggered;
     bool _paused;
     bool _repeat;
