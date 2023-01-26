@@ -1,8 +1,8 @@
 #include <Every.h>
 
-Every everySecond(1, "seconds");
-Every everyFiveSeconds(5, "seconds");
-Every everyTenSeconds(10, "seconds");
+Every everySecond(1, Every::seconds);
+Every everyFiveSeconds(5, Every::seconds);
+Every everyTenSeconds(10, Every::seconds);
 
 int ledPin = 13;
 
@@ -18,12 +18,12 @@ void secondEvent() {
 
 void thirdEvent() {
   // Change the LED blink rate to every 2 seconds
-  everySecond.setInterval(2, "seconds");
+  everySecond.setInterval(2, Every::seconds);
 }
 
 void fourthEvent() {
   // Reset the LED blink rate to every 1 second
-  everySecond.setInterval(1, "seconds");
+  everySecond.setInterval(1, Every::seconds);
 }
 
 void setup() {
