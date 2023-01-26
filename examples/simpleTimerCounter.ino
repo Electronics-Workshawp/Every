@@ -15,7 +15,6 @@ void updateHours() { hours+=1; }
 
 void setup() {
   Serial.begin(115200);
-  pinMode(LED_BUILTIN, OUTPUT);
   oneSecond.setCallback(updateSeconds);
   oneMinute.setCallback(updateMinutes);
   oneHour.setCallback(updateHours);
@@ -25,8 +24,8 @@ void loop() {
   oneSecond.update();
   oneMinute.update();
   oneHour.update();
-  String timerString = (String)seconds + ":" + (String)minutes + ":" + (String)hours;
 
+  String timerString = (String)seconds + ":" + (String)minutes + ":" + (String)hours;
   if (seconds >= 60){seconds = 0;}if (minutes >= 60){minutes = 0;}
  
   Serial.println(timerString);
