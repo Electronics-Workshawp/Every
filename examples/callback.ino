@@ -13,4 +13,5 @@ void setup() {
 
 void loop() {
   everyFiveSeconds.update();
+  everyFiveSeconds.trigger();
 }
