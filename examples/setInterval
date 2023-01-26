@@ -6,7 +6,7 @@ void setup() {
   // Initialize any necessary hardware or variables here
   
   // Change the timer interval at any time
-  everyFiveSeconds.setInterval(10,"seconds");
+  everyFiveSeconds.setInterval(10,Every::milliseconds);
   
 }
 
