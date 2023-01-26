@@ -1,6 +1,6 @@
 #include <Every.h>
 
-Every everyFiveSeconds(5, "seconds");
+Every everyFiveSeconds(5, Every::seconds);
 
 void setup() {
   // Initialize any necessary hardware or variables here
