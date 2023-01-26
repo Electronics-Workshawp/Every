@@ -3,14 +3,19 @@
 
 class Every {
   public:
-    Every(unsigned long interval, char* unit);
+	 enum Unit {
+        milliseconds,
+        seconds,
+        minutes
+    };
+    Every(unsigned long interval, Unit unit);
     bool trigger();
     void update();
     void pause();
     void resume();
-    unsigned long remaining(char* unit);
-    void setInterval(float interval, char* unit);
-	unsigned long getInterval(char* unit);
+    unsigned long remaining(Unit unit);
+    void setInterval(float interval, Unit unit);
+	unsigned long getInterval(Unit unit);
     void setRepeat(bool repeat);
 	unsigned long percent();
 	unsigned long mapValue(unsigned long target);
