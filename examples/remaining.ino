@@ -17,7 +17,7 @@ void setup() {
 
 void loop() {
   everyFiveSeconds.update();
-  if (everyFiveSeconds.remaining() <= (everyFiveSeconds.getInterval()/2)) {
+  if (everyFiveSeconds.remaining("milliseconds") <= (everyFiveSeconds.getInterval("milliseconds")/2)) {
     // Trigger the second event when the first event is half way between triggers
     secondEvent();
   }
