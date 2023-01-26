@@ -13,18 +13,18 @@ The Every library allows you to create a timer/scheduler for the Arduino platfor
 
 ## API Reference
 
--Every() constructor sets the time interval for the class and the unit of time (milliseconds, seconds, minutes, or hours) to use for the interval.
--trigger() returns true if the interval has been reached and the trigger has been activated.
--ready() returns true if the interval has been reached and ready has been activated.
--update() updates the internal state of the class to check if the interval has been reached and triggers the trigger or ready.
--pauseTask() pauses the task from updating.
--resumeTask() resumes the task from updating.
--remaining() returns the remaining time until the interval is reached in the specified unit of time.
--setInterval() sets the new time interval for the class and the unit of time to use for the interval.
--getInterval() returns the current time interval in the specified unit of time.
--percent() returns the percentage of the time interval that has passed.
--mapValue() maps a value between a source and a target based on the percentage of the time interval that has passed.
--setRepeat() sets whether the class should repeat the interval after it's been reached or not.
--setCallback() sets a callback function to be called when the interval has been reached.
+- Every() constructor sets the time interval for the class and the unit of time (milliseconds, seconds, minutes, or hours) to use for the interval.
+- trigger() returns true if the interval has been reached and the trigger has been activated.
+- ready() returns true if the interval has been reached and ready has been activated.
+- update() updates the internal state of the class to check if the interval has been reached and triggers the trigger or ready.
+- pauseTask() pauses the task from updating.
+- resumeTask() resumes the task from updating.
+- remaining() returns the remaining time until the interval is reached in the specified unit of time.
+- setInterval() sets the new time interval for the class and the unit of time to use for the interval.
+- getInterval() returns the current time interval in the specified unit of time.
+- percent() returns the percentage of the time interval that has passed.
+- mapValue() maps a value between a source and a target based on the percentage of the time interval that has passed.
+- setRepeat() sets whether the class should repeat the interval after it's been reached or not.
+- setCallback() sets a callback function to be called when the interval has been reached.
 
 **
