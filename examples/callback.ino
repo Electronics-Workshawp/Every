@@ -1,6 +1,6 @@
 #include <Every.h>
 
-Every everyFiveSeconds(5, "seconds");
+Every everyFiveSeconds(5, Every::seconds);
 
 void doSomething(){
     // Do something every 5 seconds
