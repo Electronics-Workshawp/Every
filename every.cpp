@@ -16,6 +16,14 @@
 	}
 
 
+		void Every::pauseTask() {
+	  _paused = true;
+	}
+
+		void Every::resumeTask() {
+	  _paused = false;
+	}
+
 
 	bool Every::trigger() {
 	  if (_triggered) {
