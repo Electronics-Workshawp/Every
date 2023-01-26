@@ -13,10 +13,16 @@ The Every library allows you to create a timer/scheduler for the Arduino platfor
 
 ## API Reference
 
-The library has several methods that can be used to control the timer, here is a brief description of each method:
-- `Every()`: Constructor method to create an object of the `Every` class. It takes in an interval and a unit of time (microseconds, milliseconds, seconds, or minutes) and initializes the timer.
-- `update()`: Method that should be called in the `loop()` function of the sketch to check if the interval has passed and trigger the action if necessary.
-- `trigger()`: Method that should be called to check if the action should be triggered. It returns true if the interval has passed and the action should be triggered, and false otherwise.
-- `pause()`:  Stops the timer from running and prevents the `update()` method from triggering the action.
-- `resume()`: Starts the timer again and allows the `update()` method to trigger the action.
-- `remaining()`: returns the amount of time remaining until the next trigger.
+-Every() constructor sets the time interval for the class and the unit of time (milliseconds, seconds, minutes, or hours) to use for the interval.
+-trigger() returns true if the interval has been reached and the trigger has been activated.
+-ready() returns true if the interval has been reached and ready has been activated.
+-update() updates the internal state of the class to check if the interval has been reached and triggers the trigger or ready.
+-pauseTask() pauses the task from updating.
+-resumeTask() resumes the task from updating.
+-remaining() returns the remaining time until the interval is reached in the specified unit of time.
+-setInterval() sets the new time interval for the class and the unit of time to use for the interval.
+-getInterval() returns the current time interval in the specified unit of time.
+-percent() returns the percentage of the time interval that has passed.
+-mapValue() maps a value between a source and a target based on the percentage of the time interval that has passed.
+-setRepeat() sets whether the class should repeat the interval after it's been reached or not.
+-setCallback() sets a callback function to be called when the interval has been reached.
