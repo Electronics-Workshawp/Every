@@ -9,9 +9,9 @@
 	  _paused = false;
 	  _repeat = true;
 	  _callback = NULL;
-	  if (unit == milliseconds) {_interval *= 1;}
-	  else if (unit == seconds) {_interval *= 1000;}
-	  else if (unit == minutes) {_interval *= 1000*60;}
+	  if (unit == milliseconds) {_interval *= 1ul;}
+	  else if (unit == seconds) {_interval *= 1000ul;}
+	  else if (unit == minutes) {_interval *= 1000ul*60ul;}
 	  else if (unit == hours) {_interval *= 1000ul*60ul*60ul;}
 	}
 
@@ -75,9 +75,9 @@
 	  } else if (_previousTime + _interval > currentTime) {
 		uint32_t  remainingTime = _previousTime + _interval - currentTime;
 
-		if (unit == milliseconds) {return remainingTime / 1;}
-		else if (unit == seconds) {return remainingTime / 1000;}
-		else if (unit == minutes) {return remainingTime / (1000*60);}
+		if (unit == milliseconds) {return remainingTime / 1ul;}
+		else if (unit == seconds) {return remainingTime / 1000ul;}
+		else if (unit == minutes) {return remainingTime / (1000ul*60ul);}
 		else if (unit == hours) {return remainingTime / (1000ul*60ul*60ul);}
 	  } 
 	  else {
@@ -90,9 +90,9 @@
 	void Every::setInterval(float interval,Unit unit) {
 	  _interval = interval;
 	  
-	  if (unit == milliseconds){_interval *= 1;}
-	  else if (unit == seconds) {_interval *= 1000;}
-	  else if (unit == minutes) {_interval *= 1000*60;}
+	  if (unit == milliseconds){_interval *= 1ul;}
+	  else if (unit == seconds) {_interval *= 1000ul;}
+	  else if (unit == minutes) {_interval *= 1000ul*60ul;}
 	  else if (unit == hours) {_interval *= 1000ul*60ul*60ul;}
 	}
 
@@ -100,9 +100,9 @@
 	uint32_t   Every::getInterval(Unit unit) {
 	  uint32_t  interval = _interval;
 
-	  if (unit == milliseconds){return interval /= 1;}
-	  else if (unit == seconds){return interval /= 1000;}
-	  else if (unit == minutes){return interval /= 1000*60;}
+	  if (unit == milliseconds){return interval /= 1ul;}
+	  else if (unit == seconds){return interval /= 1000ul;}
+	  else if (unit == minutes){return interval /= 1000ul*60ul;}
 	  else if (unit == hours){return interval /= 1000ul*60ul*60ul;}
 	  else{
 		return 0;
