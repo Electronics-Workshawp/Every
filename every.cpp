@@ -49,7 +49,7 @@
 
 	void Every::update() {
 	  if(_paused) return;
-	  unsigned long currentTime = millis();
+	  uint32_t currentTime = millis();
 	  if (currentTime - _previousTime >= _interval) {
 		_previousTime = currentTime;
 		_triggered = true;
